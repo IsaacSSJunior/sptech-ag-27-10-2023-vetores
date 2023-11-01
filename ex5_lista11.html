@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bairro</title>
+</head>
+
+<body>
+
+    <input type="text" id="in_filme">
+    <button onclick="CadastrarFilme()">Cadastrar Filme</button>
+    <button onclick="VerFavoritos()">Ver Favoritos</button>
+    <br>
+    Seu filme favorito:<span id="span_filme_favorito"></span>
+    <br>
+    <br>
+    Seu 3° filme favorito:<span id="span_terceiro_filme_favorito"></span>
+    <br>
+    <br>
+    Todos os filmes cadastrados:<span id="span_todos_filmes"></span>
+
+</body>
+
+</html>
+<script>
+
+    listaFilmes = []
+
+    function CadastrarFilme() {
+        listaFilmes.push(in_filme.value)
+
+        span_filme_favorito.innerHTML = listaFilmes[0]
+
+        if (listaFilmes.length < 3) {
+            span_terceiro_filme_favorito.innerHTML = `Ainda não existe`
+        } else {
+            span_terceiro_filme_favorito.innerHTML = `${listaFilmes[2]}`
+        }
+
+        span_todos_filmes.innerHTML = `Total de filmes cadastrados: ${listaFilmes.length}`
+    }
+
+
+
+
+
+</script>

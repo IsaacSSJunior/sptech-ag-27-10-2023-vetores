@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagem</title>
+</head>
+<body>
+    <input type="text" id="in_destino">
+    <button onclick="Adicionar()">Adicionar</button>
+
+    <button onclick="PrimeiraViagem()">Primeira Viajem</button>
+    <button onclick="TerceiraViagem()">Terceira Viajem</button>
+    <button onclick="UltimaViagem()">Última viajem</button>
+
+    <div id="div_mostrar"></div>
+
+    
+</body>
+</html>
+<script>
+
+listaViagens = []
+
+function Adicionar() {
+    listaViagens.push(in_destino.value)
+}
+
+function PrimeiraViagem() {
+
+    if (listaViagens.lenght == 0 ) {
+        div_mostrar.innerHTML = `Ainda não viajou!`
+    }else{
+        div_mostrar.innerHTML = `${listaViagens[0]}`
+    }
+    
+}
+
+function TerceiraViagem() {
+
+    if (listaViagens.lenght < 3 ) {
+        div_mostrar.innerHTML = `Ainda não fez a terceira viajem!`
+    }else{
+        div_mostrar.innerHTML = `${listaViagens[2]}`
+    }
+}
+
+function UltimaViagem() {
+
+    if (listaViagens.lenght == 0 ) {
+        div_mostrar.innerHTML = `Ainda não viajou!`
+    }else{
+            div_mostrar.innerHTML = listaViagens[listaViagens.length - 1] 
+        /* listaViagens[listaViagens.lenght - 1] */
+        // Errei na escrita do "lenght", mas arrumei.
+    }
+}
+</script>

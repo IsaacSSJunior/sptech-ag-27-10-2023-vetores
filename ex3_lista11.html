@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bairro</title>
+</head>
+
+<body>
+
+    <input type="text" id="in_nome_bairro">
+    <button onclick="CadastrarBairro()">Cadastrar bairro</button>
+    <br>
+    <input type="number" id="in_num_moradia" >
+    <button onclick="RelembrarMoradia()">Relembrar Moradia</button>
+    <div id="div_mostrar"></div>
+
+</body>
+
+</html>
+<script>
+
+    listaMoradia = []
+
+    function CadastrarBairro() {
+        listaMoradia.push(in_nome_bairro.value) 
+    }
+
+    function RelembrarMoradia() {
+        var numMoradia = in_num_moradia.value
+        if (numMoradia > listaMoradia.lenght ) {
+            div_mostrar.innerHTML = `Você ainda não morou num ${numMoradia}°`
+        } else {
+             div_mostrar.innerHTML = listaMoradia[numMoradia - 1]
+        }
+       
+    }
+
+
+
+</script>
