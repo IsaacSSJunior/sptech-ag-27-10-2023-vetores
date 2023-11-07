@@ -13,7 +13,8 @@
     <button onclick="CadastrarFilme()">Cadastrar Filme</button>
     <br>
     <h3>Filmes:</h3>
-    <div id="div_mostrar"></span>
+    <div id="div_mostrar"></div>
+    
 
 </body>
 
@@ -25,9 +26,20 @@
     function CadastrarFilme() {
         listaFilmes.push(in_filme.value)
         div_mostrar.innerHTML = ``
-
+        
         for(var contador = 0; contador < listaFilmes.length; contador ++ ){
-            div_mostrar.innerHTML += `${listaFilmes[contador]}<br>`
+                     
+
+            if (contador % 2 == 0) {
+                // VERMELHO É PAR.
+                div_mostrar.innerHTML += `<span style="color: blue;"> ${listaFilmes[contador]}</span><br>`
+
+            }else{
+                //ÍMPAR É AZUL
+                div_mostrar.innerHTML += `<span style="color: red;"> ${listaFilmes[contador]}</span><br>`   
+            }
+
+            
         }
 
     }
