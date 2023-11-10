@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Alunos</title>
+</head>
+<body>
+
+        <h1>Análise de performance de Alunos - Registro</h1>
+        <span>Entre com o Nome do aluno:</span> <input type="text" id="in_nome_aluno"> 
+        <br>
+        <span>Entre com a nota do aluno:</span> <input type="number" id="in_nota_aluno">
+        <br>
+        <button onclick="Registrar()">Registrar</button>
+        <button onclick="Analisar()">Analisar</button>
+        <div id="div_mostrar"></div>
+        <div id="div_analisar"></div>
+
+       
+    
+</body>
+</html>
+<script>
+
+    listaAlunos = []
+
+    function Registrar(){
+        var nome = in_nome_aluno.value
+        var nota = Number(in_nota_aluno.value) 
+        div_mostrar.innerHTML = ``
+
+        if(nome == ""){
+            alert('Nome está vazio!')
+        }else if (nota < 0 || nota > 10  ){
+
+            alert('A nota é inválida!')
+            
+        }else{
+            listaAlunos.push(nome,nota) 
+            for(var contador = listaAlunos.length - 1; contador >= 0; contador--){
+                div_mostrar.innerHTML += `${listaAlunos[contador]}<br>`
+            }
+            
+        }
+
+        
+    }
+
+    function Analisar(){
+        div_mostrar.innerHTML = ``
+
+        div_analisar.innerHTML  = ` <h1>Análise de performance de Alunos - Pesquisa</h1>
+        <span>Entre com o intervalo de notas:</span>
+        <input type="number" id="in_nota_aluno" placeholder="De">
+        <input type="number" id="in_nota_aluno" placeholder="Até">
+        <button onclick="Pesquisar()">Registrar</button>
+        <div id="div_mostrar"></div>
+    `
+    }
+
+</script>

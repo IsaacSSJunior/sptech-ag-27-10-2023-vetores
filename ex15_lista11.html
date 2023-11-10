@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+</head>
+<body>
+    <span>Nome produto</span>
+    <input type="text" id="nome_input">
+
+    <span>Preço produto</span>
+    <input type="text" id="input_preco">
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <button onclick="relatorio()">Relatório de estoque</button>
+
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    var listaproduto = [];
+    var listapreco = [];
+
+    function cadastrar(){
+        listaproduto.push(nome_input.value);
+        listapreco.push(input_preco.value);
+
+    }
+
+    function relatorio(){
+        var media = 0
+        var soma = 0
+        var caro = 0
+        var barato = 0
+        div_exibir.innerHTML = `Total de produto ${listaproduto.length}<br>`
+        for(var contador = 0;contador < listaproduto.length; contador ++){
+           
+            exibir.innerHTML += `Produto ${contador + 1} ${listaproduto[contador]}<br>`
+            exibir.innerHTML += `Preço de compra: ${listapreco[contador]}. Vender por R$${(Number(listapreco[contador]) * 1.25).toFixed(2)}<br>`
+
+            if(caro < Number(listapreco[contador])) {
+                caro = Number(listapreco[contador])
+            }
+            if(barato > Number(listapreco[contador]) || contador == 0){
+                barato = Number(listapreco[contador])
+            }
+
+            soma += Number(listapreco[contador])
+        }
+
+        media = (soma /Number(listapreco.length)) * 1.25 
+        
+    
+        exibir.innerHTML += `O nome do produto mais caro ${caro} <br>
+                              O nome do produto mais barato ${barato} <br>
+                              A soma dos preços de compra dos produtos ${soma} <br>
+                              A média de preço de venda dos produtos ${media.toFixed(2)}`
+
+    }
+
+
+</script>

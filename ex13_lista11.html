@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo</title>
+</head>
+<body>
+    
+ <select  id="select">
+      <option value="3">Vitoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+ </select> <br>
+
+ <button onclick="Registrar()">Registrar jogo</button> <br>
+
+
+ <input id="input_jogo" type="number">
+ <button onclick="Mostrar()">Mostrar</button> <br>
+
+  <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    var listaResultados = []
+    var vitoria = 0;
+    var empate = 0;
+    var derrota = 0;
+    var jogo = 0;
+    var total = 0;
+
+    function Registrar(){
+      listaResultados.push(select.value);
+        if(select.value == 3){
+          vitoria++
+          jogo++
+        }
+        else if(select.value == 1){
+          empate++
+          jogo++
+        } else {
+          derrota++
+          jogo++
+        }
+
+        total += Number(select.value);
+
+        div_exibir.innerHTML =`O time obteve:${vitoria} vitorias, ${empate} empates & ${derrota} derrotas - pontos totais: ${total}
+
+        Aproveitamento: ${((total/ (listaResultados.length *3)) * 100) .toFixed(2)}% <br>`
+    }
+
+      function Mostrar(){
+
+        var posicao = Number(input_jogo.value - 1)
+        var resultado = `perdeu`;
+
+
+        if(posicao <= jogo){
+          if(listaResultados[posicao] == 3){
+             resultado =  `vitoria`
+          } else if (listaResultados[posicao] == 1){
+              resultado = `empatou`
+          }
+        } else {
+          alert('Você AINDA não cadastrou nenhum jogo')
+        }
+        div_exibir.innerHTML += `No ${input_jogo.value}º JOGO, o time ${resultado} <br>`
+
+
+      }
+</script>

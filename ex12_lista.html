@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filhos</title>
+</head>
+
+<body>
+    <span>Qual o nome dos seus filhos?</span>
+    <input type="text" id="input_filhos"><br>
+
+
+    <button onclick="cadastrar()">Cadastrar</button><br>
+    <button onclick="atualizar()">Atualizar Família</button>
+
+    <div id="exibir"></div>
+
+</body>
+
+</html>
+<script>
+    var filhos = [];
+
+    function cadastrar() {
+        var nomeFilho = input_filhos.value;
+
+        if (filhos != nomeFilho) {
+            filhos.push(nomeFilho);
+        } else {
+            alert('Não pode + de 1 filho com nomes iguais!')
+        }
+
+    }
+
+    function atualizar() {
+        var totalFilhos = filhos.length;
+        var custoParticular = totalFilhos * 3000;
+        var custoPublica = totalFilhos * 1500;
+
+        exibir.innerHTML = `Você tem ${totalFilhos} filhos <br>
+s
+        Seu custo mensal: R$${custoParticular} <br> caso estudem em escola particular. ou R$${custoPublica} se estudarem em escola pública.`
+
+
+    }
+
+
+
+</script>
